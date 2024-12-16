@@ -3,16 +3,26 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\v1\CustomerResource;
-use App\Models\Customer;
+use App\Http\Resources\v1\PersonResource;
+use App\Models\Person;
+use Database\Constants\TPeople;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller {
+class PeopleController extends Controller {
   /**
    * Display a listing of the resource.
    */
   public function index() {
-    return CustomerResource::collection(Customer::all());
+    return PersonResource::collection(Person::all());
+  }
+
+  /**
+   * Display the specified resource.
+   */
+  public function show(string $customerId) {
+    return new PersonResource(
+      Person::where(TPeople::$PERSON_ID, $customerId)->first()
+    );
   }
 
   /**
@@ -27,13 +37,6 @@ class CustomerController extends Controller {
    */
   public function store(Request $request) {
     //
-  }
-
-  /**
-   * Display the specified resource.
-   */
-  public function show(string $customerId) {
-    return new CustomerResource(Customer::where('customer_id', $customerId)->first());
   }
 
   /**

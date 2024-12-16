@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Api\v1\CustomerController;
-use App\Http\Controllers\Api\v1\UserController;
+use App\Http\Controllers\Api\v1\PeopleController;
+use App\Http\Controllers\Api\v1\TelephonesController;
 //use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Route;
 //})->middleware('auth:sanctum');
 
 Route::prefix('v1')->group(function() {
-  Route::get('/users', [UserController::class, 'index']);
-  Route::get('/users/{id}', [UserController::class, 'show']);
+  Route::get('/people', [PeopleController::class, 'index']);
+  Route::get('/people/{id}', [PeopleController::class, 'show']);
 
-  Route::get('/customers', [CustomerController::class, 'index']);
-  Route::get('/customers/{customerId}', [CustomerController::class, 'show']);
+  Route::get('/telephones', [TelephonesController::class, 'index']);
+  Route::get('/telephones/{telephoneId}', [TelephonesController::class, 'show']);
 });

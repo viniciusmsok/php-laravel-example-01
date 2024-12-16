@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model {
-  /** @use HasFactory<\Database\Factories\CustomerFactory> */
-  use HasFactory;
+class Telephone extends Model
+{
+    /** @use HasFactory<\Database\Factories\TelephoneFactory> */
+    use HasFactory;
 }

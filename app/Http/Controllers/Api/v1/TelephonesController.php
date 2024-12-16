@@ -3,16 +3,17 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\v1\UserResource;
-use App\Models\User;
+use App\Http\Resources\v1\TelephoneResource;
+use App\Models\Telephone;
+use Database\Constants\TTelephones;
 use Illuminate\Http\Request;
 
-class UserController extends Controller {
+class TelephonesController extends Controller {
   /**
    * Display a listing of the resource.
    */
   public function index() {
-    return UserResource::collection(User::all());
+    return TelephoneResource::collection(Telephone::all());
   }
 
   /**
@@ -32,8 +33,10 @@ class UserController extends Controller {
   /**
    * Display the specified resource.
    */
-  public function show(string $userId) {
-    return new UserResource(User::where('user_id', $userId)->first());
+  public function show(string $telephoneId) {
+    return new TelephoneResource(
+      Telephone::where(TTelephones::$TELEPHONE_ID, $telephoneId)->first()
+    );
   }
 
   /**
