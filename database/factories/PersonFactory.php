@@ -19,13 +19,13 @@ class PersonFactory extends Factory {
     $this->faker->addProvider(new BrazilianProvider($this->faker));
 
     $personType = $this->faker->randomElement(
-      [TPeople::$PERSON_TYPE_LEGAL, TPeople::$PERSON_TYPE_NATURAL]
+      [TPeople::PERSON_TYPE_LEGAL, TPeople::PERSON_TYPE_NATURAL]
     );
 
     $name = '';
     $mainCountryCode = '';
 
-    if ($personType === TPeople::$PERSON_TYPE_LEGAL) {
+    if ($personType === TPeople::PERSON_TYPE_LEGAL) {
       $name = $this->faker->company;
       $mainCountryCode = $this->faker->generateUniqueCPF();
     }
@@ -37,12 +37,12 @@ class PersonFactory extends Factory {
     $name = substr($name, 0, 60);
 
     return [
-      TPeople::$PERSON_TYPE => $personType,
-      TPeople::$MAIN_NAME => $name,
-      TPeople::$SOCIAL_NAME => $name,
-      TPeople::$MAIN_COUNTRY_CODE => 'BRA',
-      TPeople::$NATIONAL_ID => $mainCountryCode,
-      TPeople::$EMAIL => $this->faker->email
+      TPeople::PERSON_TYPE => $personType,
+      TPeople::MAIN_NAME => $name,
+      TPeople::SOCIAL_NAME => $name,
+      TPeople::MAIN_COUNTRY_CODE => 'BRA',
+      TPeople::NATIONAL_ID => $mainCountryCode,
+      TPeople::EMAIL => $this->faker->email
     ];
   }
 }

@@ -21,7 +21,7 @@ class PeopleController extends Controller {
    */
   public function show(string $customerId) {
     return new PersonResource(
-      Person::where(TPeople::$PERSON_ID, $customerId)->first()
+      Person::where(TPeople::PERSON_ID, $customerId)->first()
     );
   }
 

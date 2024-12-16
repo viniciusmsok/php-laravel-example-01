@@ -35,7 +35,7 @@ class TelephonesController extends Controller {
    */
   public function show(string $telephoneId) {
     return new TelephoneResource(
-      Telephone::where(TTelephones::$TELEPHONE_ID, $telephoneId)->first()
+      Telephone::where(TTelephones::TELEPHONE_ID, $telephoneId)->first()
     );
   }
 
