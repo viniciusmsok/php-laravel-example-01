@@ -15,3 +15,6 @@ Recreate database with mocked data
 
 Start development server
 > php artisan serve
+
+Create rule
+> php artisan make:rule Test

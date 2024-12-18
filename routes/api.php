@@ -14,5 +14,6 @@ Route::prefix('v1')->group(function() {
   Route::get('/people/{id}', [PeopleController::class, 'show']);
 
   Route::get('/telephones', [TelephonesController::class, 'index']);
+  Route::post('/telephones', [TelephonesController::class, 'store']);
   Route::get('/telephones/{telephoneId}', [TelephonesController::class, 'show']);
 });

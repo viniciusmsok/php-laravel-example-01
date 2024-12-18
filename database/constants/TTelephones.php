@@ -3,6 +3,8 @@
 namespace Database\Constants;
 
 class TTelephones extends Table {
+  protected static $tableName = 'telephones';
+
   const TABLE_NAME = 'telephones';
 
   /* COLUMNS */
@@ -14,9 +16,8 @@ class TTelephones extends Table {
   const PHONE_NUMBER_WITH_MASK = 'phone_number_with_mask';
   const EXTENSION_CODE         = 'extension_code';
   const VERIFIED_BOOLEAN       = 'verified_boolean';
-
-  const CREATED_AT = 'created_at';
-  const UPDATED_AT = 'updated_at';
+  const CREATED_AT             = 'created_at';
+  const UPDATED_AT             = 'updated_at';
 
   /* CONSTRAINTS */
   const CK_TELEPHONES_NUMBER = 'ck_telephones_number';

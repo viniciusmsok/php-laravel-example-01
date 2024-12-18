@@ -30,12 +30,18 @@ class TelephoneFactory extends Factory {
 		}
 
 		return [
-			TTelephones::PERSON_ID => Person::all()->random()->person_id,
+			TTelephones::PERSON_ID => (
+				Person::all()->random()->person_id
+			),
 			TTelephones::NUMBER_TYPE => $type,
 			TTelephones::COUNTRY_DIALING_CODE => '55',
-			TTelephones::PHONE_NUMBER => preg_replace('/\D/', '', $phone),
+			TTelephones::PHONE_NUMBER => onlyNumbers($phone),
 			TTelephones::PHONE_NUMBER_WITH_MASK => $phone,
-			TTelephones::EXTENSION_CODE => $this->faker->optional(0.2)->numberBetween(1, 9999),
+
+			TTelephones::EXTENSION_CODE => (
+				$this->faker->optional(0.2)->numberBetween(1, 9999)
+			),
+
 			TTelephones::VERIFIED_BOOLEAN => $this->faker->randomElement([
 				TTelephones::YES,
 				TTelephones::NO
